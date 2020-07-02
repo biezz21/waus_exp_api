@@ -17,6 +17,7 @@ from django.contrib import admin
 from django.urls import path, include
 from rest_framework import routers
 from APIapp.views import DownExpViewset, UpExpViewset, AnnotationViewset
+from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 
 router = routers.DefaultRouter()
 router.register('Down_exp', DownExpViewset, basename='Down_exp')
@@ -28,3 +29,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include(router.urls)),
 ]
+
+urlpatterns += staticfiles_urlpatterns()
